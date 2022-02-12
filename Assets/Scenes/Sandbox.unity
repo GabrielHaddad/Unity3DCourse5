@@ -1721,17 +1721,9 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 576220019}
-    - target: {fileID: 287327045854384490, guid: d4d99b40e775cbd4db295023d43a9d18, type: 3}
-      propertyPath: turnSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 287327045854384493, guid: d4d99b40e775cbd4db295023d43a9d18, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1674148631012166270, guid: d4d99b40e775cbd4db295023d43a9d18, type: 3}
-      propertyPath: target
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4d99b40e775cbd4db295023d43a9d18, type: 3}
