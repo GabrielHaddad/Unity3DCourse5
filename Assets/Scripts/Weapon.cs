@@ -11,19 +11,44 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitBulletEffect;
     [SerializeField] float hitBulletDuration = 0.1f;
+    [SerializeField] float shootDelay = 1f;
+    bool canShoot = true;
+
+    Ammo ammoSlot;
+
+    void Awake()
+    {
+        ammoSlot = GetComponentInParent<Ammo>();
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
-        PlayMuzzleFash();
-        ProcessRaycast();
+        canShoot = false;
+
+        if (ammoSlot.AmmoAmount > 0)
+        {
+            PlayMuzzleFash();
+            ProcessRaycast();
+            ammoSlot.ReduceCurrentAmmo();
+        }
+
+        yield return new WaitForSeconds(shootDelay);
+
+        canShoot = true;
+    }
+
+    public void StopCoolDown()
+    {
+        StopAllCoroutines();
+        canShoot = true;
     }
 
     void PlayMuzzleFash()
@@ -49,7 +74,7 @@ public class Weapon : MonoBehaviour
 
     void CreateHitEffect(RaycastHit hit)
     {
-        GameObject instance =  Instantiate(hitBulletEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        GameObject instance = Instantiate(hitBulletEffect, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(instance, hitBulletDuration);
     }
 }

@@ -17,8 +17,8 @@ public class WeaponZoom : MonoBehaviour
 
     void Awake() 
     {
-        fpController = GetComponent<FirstPersonController>();
-        fPCamera = GetComponentInChildren<Camera>();
+        fpController = GetComponentInParent<FirstPersonController>();
+        fPCamera = GetComponentInParent<Camera>();
     }
 
     void Update()
