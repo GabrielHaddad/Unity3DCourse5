@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        NotifyEnemy();
         hitPoints -= damage;
 
         if (hitPoints <= 0)
@@ -19,6 +20,11 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    void NotifyEnemy()
+    {
+        BroadcastMessage("OnDamageTaken");
     }
 
 }

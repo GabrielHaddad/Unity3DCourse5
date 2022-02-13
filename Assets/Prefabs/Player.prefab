@@ -63,6 +63,8 @@ GameObject:
   - component: {fileID: 6331947966949193556}
   - component: {fileID: 6331947966951853524}
   - component: {fileID: 6331947966945890970}
+  - component: {fileID: 2279239133774716117}
+  - component: {fileID: 1815495350}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -351,6 +353,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f05a165fd393e48b263116454738dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoints: 100
+--- !u!114 &2279239133774716117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331947966945858612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da515fd820f10946a3366590d83db16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverCanvas: {fileID: 0}
+--- !u!114 &1815495350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331947966945858612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54f51981f8a1c14faafb82026fc2417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomInFOV: 25
+  zoomInSensitivity: 0.5
 --- !u!1 &6331947966945858614
 GameObject:
   m_ObjectHideFlags: 0
