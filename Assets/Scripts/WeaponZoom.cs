@@ -21,26 +21,45 @@ public class WeaponZoom : MonoBehaviour
         fPCamera = GetComponentInParent<Camera>();
     }
 
+    void Start() 
+    {
+        zoomOutFOV = fPCamera.fieldOfView;
+        zoomOutSensitivity = fpController.m_MouseLook.XSensitivity;
+    }
+
+    void OnDisable() 
+    {
+        ZoomOut();
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
             if (!zoomInToggle)
             {
-                zoomInToggle = true;
-                zoomOutFOV = fPCamera.fieldOfView;
-                fPCamera.fieldOfView = zoomInFOV;
-                zoomOutSensitivity = fpController.m_MouseLook.XSensitivity;
-                fpController.m_MouseLook.XSensitivity = zoomInSensitivity;
-                fpController.m_MouseLook.YSensitivity = zoomInSensitivity;
+                ZoomIn();
             }
             else
             {
-                zoomInToggle = false;
-                fPCamera.fieldOfView = zoomOutFOV;
-                fpController.m_MouseLook.XSensitivity = zoomOutSensitivity;
-                fpController.m_MouseLook.YSensitivity = zoomOutSensitivity;
+                ZoomOut();
             }
         }
+    }
+
+    void ZoomIn()
+    {
+        zoomInToggle = true;
+        fPCamera.fieldOfView = zoomInFOV;
+        fpController.m_MouseLook.XSensitivity = zoomInSensitivity;
+        fpController.m_MouseLook.YSensitivity = zoomInSensitivity; 
+    }
+
+    void ZoomOut()
+    {
+        zoomInToggle = false;
+        fPCamera.fieldOfView = zoomOutFOV;
+        fpController.m_MouseLook.XSensitivity = zoomOutSensitivity;
+        fpController.m_MouseLook.YSensitivity = zoomOutSensitivity;
     }
 }

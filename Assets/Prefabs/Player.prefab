@@ -33,6 +33,7 @@ MonoBehaviour:
   hitBulletEffect: {fileID: 7586695750280441858, guid: ea9968894b3e1ef48ac911e593e3e57a, type: 3}
   hitBulletDuration: 0.1
   shootDelay: 0.5
+  ammoType: 2
 --- !u!114 &7616132764251798691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +113,7 @@ GameObject:
   - component: {fileID: 5358236641567700054}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -424,7 +425,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb86738e540887469b3ab3ad5671238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 100
+  ammoSlots:
+  - ammoType: 0
+    ammoAmount: 30
+  - ammoType: 1
+    ammoAmount: 10
+  - ammoType: 2
+    ammoAmount: 100
 --- !u!1 &6331947966945858614
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +544,7 @@ MonoBehaviour:
   hitBulletEffect: {fileID: 7586695750280441858, guid: ea9968894b3e1ef48ac911e593e3e57a, type: 3}
   hitBulletDuration: 0.1
   shootDelay: 2
+  ammoType: 1
 --- !u!114 &1501465366303222845
 MonoBehaviour:
   m_ObjectHideFlags: 0

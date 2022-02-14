@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitBulletEffect;
     [SerializeField] float hitBulletDuration = 0.1f;
     [SerializeField] float shootDelay = 1f;
+    [SerializeField] AmmoType ammoType;
     bool canShoot = true;
 
     Ammo ammoSlot;
@@ -19,6 +20,11 @@ public class Weapon : MonoBehaviour
     void Awake()
     {
         ammoSlot = GetComponentInParent<Ammo>();
+    }
+
+    void OnEnable() 
+    {
+        canShoot = true;
     }
 
     void Update()
@@ -33,11 +39,11 @@ public class Weapon : MonoBehaviour
     {
         canShoot = false;
 
-        if (ammoSlot.AmmoAmount > 0)
+        if (ammoSlot.GetCurrentAmmo(ammoType) > 0)
         {
             PlayMuzzleFash();
             ProcessRaycast();
-            ammoSlot.ReduceCurrentAmmo();
+            ammoSlot.ReduceCurrentAmmo(ammoType);
         }
 
         yield return new WaitForSeconds(shootDelay);
