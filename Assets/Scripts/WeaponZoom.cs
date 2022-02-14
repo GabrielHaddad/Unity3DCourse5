@@ -19,10 +19,6 @@ public class WeaponZoom : MonoBehaviour
     {
         fpController = GetComponentInParent<FirstPersonController>();
         fPCamera = GetComponentInParent<Camera>();
-    }
-
-    void Start() 
-    {
         zoomOutFOV = fPCamera.fieldOfView;
         zoomOutSensitivity = fpController.m_MouseLook.XSensitivity;
     }
